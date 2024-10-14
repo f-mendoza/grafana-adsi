@@ -13,4 +13,4 @@ scrape_configs:
     scrape_interval: 5s
     metrics_path: /prometheus
     static_configs:
-      - targets: ["granafa-laravel:80"]
+      - targets: ["grafana-laravel:80"]
