@@ -4,6 +4,12 @@ if [[ ! -d vendor ]]; then
     composer install
 fi
 
+if [[ ! -f /app/.env ]]; then
+    cp .env.example .env
+    php artisan key:generate
+    php artisan migrate -q
+fi
+
 if [[ -d /app/public ]]; then
     if [[ ! -d /var/www/html ]]; then
         ln -s /app/public /var/www/html

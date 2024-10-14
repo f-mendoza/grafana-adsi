@@ -5,7 +5,7 @@ services:
 
   laravel:
     build: .
-    container_name: "granafa-laravel"
+    container_name: "grafana-laravel"
     volumes:
       - ./:/app
     ports:
@@ -23,15 +23,7 @@ services:
       - "--config.file=/etc/prometheus/prometheus.yml"
       - "--storage.tsdb.path=/prometheus"
     ports:
-      - 9090:9090
-    networks:
-      - grafana
-
-  loki:
-    image: grafana/loki
-    ports:
-      - 3100:3100
-    command: -config.file=/etc/loki/local-config.yaml
+      - 9091:9090
     networks:
       - grafana
 
